@@ -3,10 +3,10 @@ package db
 import (
 	"database/sql"
 
-	_ "github.com/go-sql-driver/mysql"
+	"github.com/go-sql-driver/mysql"
 )
 
-func NewMySQLStorage(cfg mysql.Confing) (*sql.DB, error) {
+func NewMySQLStorage(cfg *mysql.Config) (*sql.DB, error) {
 	db, err := sql.Open("mysql", cfg.FormatDSN())
 	if err != nil {
 		return nil, err
